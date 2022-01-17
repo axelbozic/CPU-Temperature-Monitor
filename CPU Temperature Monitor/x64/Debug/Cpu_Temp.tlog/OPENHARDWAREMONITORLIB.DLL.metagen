@@ -1,0 +1,370 @@
+  OpenHardwareMonitor.Hardware.WinRing0.sys - Embedded, ContainedInManifestFile, 
+  OpenHardwareMonitor.Hardware.WinRing0x64.sys - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly OpenHardwareMonitorLib, Version=0.9.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Struct OpenHardwareMonitor.Hardware.ControlMode: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    OpenHardwareMonitor.Hardware.ControlMode Undefined = 0 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.ControlMode Software = 1 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.ControlMode Default = 2 : Public, Static, Literal, HasDefault
+Interface OpenHardwareMonitor.Hardware.IControl: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Properties:
+    OpenHardwareMonitor.Hardware.Identifier Identifier 'get ' : 
+    OpenHardwareMonitor.Hardware.ControlMode ControlMode 'get ' : 
+    Single SoftwareValue 'get ' : 
+    Single MinSoftwareValue 'get ' : 
+    Single MaxSoftwareValue 'get ' : 
+  Methods:
+    get_Identifier(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_ControlMode(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_SoftwareValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    SetDefault(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_MinSoftwareValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_MaxSoftwareValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    SetSoftware(Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class OpenHardwareMonitor.Hardware.Computer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(OpenHardwareMonitor.Hardware.ISettings): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IComputer
+    OpenHardwareMonitor.Hardware.IElement
+  Properties:
+    Boolean MainboardEnabled 'get set' : 
+    Boolean CPUEnabled 'get set' : 
+    Boolean RAMEnabled 'get set' : 
+    Boolean GPUEnabled 'get set' : 
+    Boolean FanControllerEnabled 'get set' : 
+    Boolean HDDEnabled 'get set' : 
+    OpenHardwareMonitor.Hardware.IHardware[] Hardware 'get ' : 
+  Events:
+    OpenHardwareMonitor.Hardware.HardwareEventHandler HardwareAdded: 
+    OpenHardwareMonitor.Hardware.HardwareEventHandler HardwareRemoved: 
+  Methods:
+    Open(): PrivateScope, Public, HideBySig, HasSecurity
+    Reset(): PrivateScope, Public, HideBySig
+    get_MainboardEnabled(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_MainboardEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName, HasSecurity
+    get_CPUEnabled(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_CPUEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName, HasSecurity
+    get_RAMEnabled(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_RAMEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName, HasSecurity
+    get_GPUEnabled(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_GPUEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName, HasSecurity
+    get_FanControllerEnabled(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_FanControllerEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName, HasSecurity
+    get_HDDEnabled(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_HDDEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName, HasSecurity
+    get_Hardware(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetReport(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Close(): PrivateScope, Public, HideBySig
+    add_HardwareAdded(HardwareEventHandler): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_HardwareAdded(HardwareEventHandler): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_HardwareRemoved(HardwareEventHandler): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_HardwareRemoved(HardwareEventHandler): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Accept(IVisitor): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Traverse(IVisitor): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class OpenHardwareMonitor.Hardware.OperatingSystem: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    Boolean IsUnix 'get ' : 
+    Boolean Is64BitOperatingSystem 'get ' : 
+  Methods:
+    get_IsUnix(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Is64BitOperatingSystem(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class OpenHardwareMonitor.Hardware.HardwareEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IHardware): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(IHardware, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Interface OpenHardwareMonitor.Hardware.IComputer: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IElement
+  Properties:
+    OpenHardwareMonitor.Hardware.IHardware[] Hardware 'get ' : 
+    Boolean MainboardEnabled 'get ' : 
+    Boolean CPUEnabled 'get ' : 
+    Boolean RAMEnabled 'get ' : 
+    Boolean GPUEnabled 'get ' : 
+    Boolean FanControllerEnabled 'get ' : 
+    Boolean HDDEnabled 'get ' : 
+  Events:
+    OpenHardwareMonitor.Hardware.HardwareEventHandler HardwareAdded: 
+    OpenHardwareMonitor.Hardware.HardwareEventHandler HardwareRemoved: 
+  Methods:
+    get_Hardware(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_MainboardEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_CPUEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_RAMEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_GPUEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_FanControllerEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_HDDEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    GetReport(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    add_HardwareAdded(HardwareEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    remove_HardwareAdded(HardwareEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    add_HardwareRemoved(HardwareEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    remove_HardwareRemoved(HardwareEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Class OpenHardwareMonitor.Hardware.Identifier: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(OpenHardwareMonitor.Hardware.Identifier, System.String[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IComparable`1[OpenHardwareMonitor.Hardware.Identifier]
+  Methods:
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+    Equals(Object): PrivateScope, Public, Virtual, HideBySig
+    GetHashCode(): PrivateScope, Public, Virtual, HideBySig
+    CompareTo(Identifier): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    op_Equality(Identifier, Identifier): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Inequality(Identifier, Identifier): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_LessThan(Identifier, Identifier): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_GreaterThan(Identifier, Identifier): PrivateScope, Public, Static, HideBySig, SpecialName
+Interface OpenHardwareMonitor.Hardware.IElement: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Accept(IVisitor): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Traverse(IVisitor): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class OpenHardwareMonitor.Hardware.SensorEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(ISensor): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(ISensor, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Struct OpenHardwareMonitor.Hardware.HardwareType: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    OpenHardwareMonitor.Hardware.HardwareType Mainboard = 0 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType SuperIO = 1 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType CPU = 2 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType RAM = 3 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType GpuNvidia = 4 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType GpuAti = 5 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType TBalancer = 6 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType Heatmaster = 7 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.HardwareType HDD = 8 : Public, Static, Literal, HasDefault
+Interface OpenHardwareMonitor.Hardware.IHardware: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IElement
+  Properties:
+    System.String Name 'get set' : 
+    OpenHardwareMonitor.Hardware.Identifier Identifier 'get ' : 
+    OpenHardwareMonitor.Hardware.HardwareType HardwareType 'get ' : 
+    OpenHardwareMonitor.Hardware.IHardware[] SubHardware 'get ' : 
+    OpenHardwareMonitor.Hardware.IHardware Parent 'get ' : 
+    OpenHardwareMonitor.Hardware.ISensor[] Sensors 'get ' : 
+  Events:
+    OpenHardwareMonitor.Hardware.SensorEventHandler SensorAdded: 
+    OpenHardwareMonitor.Hardware.SensorEventHandler SensorRemoved: 
+  Methods:
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    set_Name(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Identifier(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_HardwareType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    GetReport(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Update(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_SubHardware(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Parent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Sensors(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    add_SensorAdded(SensorEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    remove_SensorAdded(SensorEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    add_SensorRemoved(SensorEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    remove_SensorRemoved(SensorEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Interface OpenHardwareMonitor.Hardware.IParameter: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IElement
+  Properties:
+    OpenHardwareMonitor.Hardware.ISensor Sensor 'get ' : 
+    OpenHardwareMonitor.Hardware.Identifier Identifier 'get ' : 
+    System.String Name 'get ' : 
+    System.String Description 'get ' : 
+    Single Value 'get set' : 
+    Single DefaultValue 'get ' : 
+    Boolean IsDefault 'get set' : 
+  Methods:
+    get_Sensor(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Identifier(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Description(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Value(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    set_Value(Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_DefaultValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_IsDefault(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    set_IsDefault(Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Struct OpenHardwareMonitor.Hardware.SensorType: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    OpenHardwareMonitor.Hardware.SensorType Voltage = 0 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Clock = 1 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Temperature = 2 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Load = 3 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Fan = 4 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Flow = 5 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Control = 6 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Level = 7 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Factor = 8 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Power = 9 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Data = 10 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType SmallData = 11 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.SensorType Throughput = 12 : Public, Static, Literal, HasDefault
+Struct OpenHardwareMonitor.Hardware.SensorValue: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Single, System.DateTime): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Single Value 'get ' : 
+    System.DateTime Time 'get ' : 
+  Methods:
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    get_Time(): PrivateScope, Public, HideBySig, SpecialName
+Interface OpenHardwareMonitor.Hardware.ISensor: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IElement
+  Properties:
+    OpenHardwareMonitor.Hardware.IHardware Hardware 'get ' : 
+    OpenHardwareMonitor.Hardware.SensorType SensorType 'get ' : 
+    OpenHardwareMonitor.Hardware.Identifier Identifier 'get ' : 
+    System.String Name 'get set' : 
+    Int32 Index 'get ' : 
+    Boolean IsDefaultHidden 'get ' : 
+    OpenHardwareMonitor.Collections.IReadOnlyArray`1[OpenHardwareMonitor.Hardware.IParameter] Parameters 'get ' : 
+    System.Nullable`1[System.Single] Value 'get ' : 
+    System.Nullable`1[System.Single] Min 'get ' : 
+    System.Nullable`1[System.Single] Max 'get ' : 
+    System.Collections.Generic.IEnumerable`1[OpenHardwareMonitor.Hardware.SensorValue] Values 'get ' : 
+    OpenHardwareMonitor.Hardware.IControl Control 'get ' : 
+  Methods:
+    get_Hardware(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_SensorType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Identifier(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    set_Name(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Index(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_IsDefaultHidden(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Parameters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Value(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Min(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Max(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    ResetMin(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ResetMax(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_Values(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Control(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Interface OpenHardwareMonitor.Hardware.IVisitor: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    VisitComputer(IComputer): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    VisitHardware(IHardware): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    VisitSensor(ISensor): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    VisitParameter(IParameter): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class OpenHardwareMonitor.Hardware.SensorVisitor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(OpenHardwareMonitor.Hardware.SensorEventHandler): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IVisitor
+  Methods:
+    VisitComputer(IComputer): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    VisitHardware(IHardware): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    VisitSensor(ISensor): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    VisitParameter(IParameter): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Interface OpenHardwareMonitor.Hardware.ISettings: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Contains(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    SetValue(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetValue(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Remove(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Struct OpenHardwareMonitor.Hardware.Nvidia.UtilizationDomain: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    OpenHardwareMonitor.Hardware.Nvidia.UtilizationDomain GPU = 0 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.Nvidia.UtilizationDomain FrameBuffer = 1 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.Nvidia.UtilizationDomain VideoEngine = 2 : Public, Static, Literal, HasDefault
+    OpenHardwareMonitor.Hardware.Nvidia.UtilizationDomain BusInterface = 3 : Public, Static, Literal, HasDefault
+Struct OpenHardwareMonitor.Collections.Pair`2[F,S]: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  Type parameter: F
+  Type parameter: S
+  :System.ValueType
+    Void .ctor(F, S): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    F First    'get set' : 
+    S Second   'get set' : 
+  Methods:
+    get_First(): PrivateScope, Public, HideBySig, SpecialName
+    set_First(F): PrivateScope, Public, HideBySig, SpecialName
+    get_Second(): PrivateScope, Public, HideBySig, SpecialName
+    set_Second(S): PrivateScope, Public, HideBySig, SpecialName
+    GetHashCode(): PrivateScope, Public, Virtual, HideBySig
+Class OpenHardwareMonitor.Collections.RingCollection`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    Int32 Capacity 'get set' : 
+    Int32 Count 'get ' : 
+    T Item [Int32] 'get set' : 
+    T First    'get set' : 
+    T Last     'get set' : 
+  Methods:
+    get_Capacity(): PrivateScope, Public, HideBySig, SpecialName
+    set_Capacity(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Clear(): PrivateScope, Public, HideBySig
+    Append(T): PrivateScope, Public, HideBySig
+    Remove(): PrivateScope, Public, HideBySig
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, T): PrivateScope, Public, HideBySig, SpecialName
+    get_First(): PrivateScope, Public, HideBySig, SpecialName
+    set_First(T): PrivateScope, Public, HideBySig, SpecialName
+    get_Last(): PrivateScope, Public, HideBySig, SpecialName
+    set_Last(T): PrivateScope, Public, HideBySig, SpecialName
+Interface OpenHardwareMonitor.Collections.IReadOnlyArray`1[T]: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Type parameter: T
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    T Item [Int32] 'get ' : 
+    Int32 Length 'get ' : 
+  Methods:
+    get_Item(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Length(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Class OpenHardwareMonitor.Collections.ListSet`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    Int32 Count 'get ' : 
+  Methods:
+    Add(T): PrivateScope, Public, HideBySig
+    Remove(T): PrivateScope, Public, HideBySig
+    Contains(T): PrivateScope, Public, HideBySig
+    ToArray(): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+Class OpenHardwareMonitor.Collections.ReadOnlyArray`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(T[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    OpenHardwareMonitor.Collections.IReadOnlyArray`1[T]
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    T Item [Int32] 'get ' : 
+    Int32 Length 'get ' : 
+  Methods:
+    get_Item(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Length(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    op_Implicit(T[]): PrivateScope, Public, Static, HideBySig, SpecialName
+    ToArray(): PrivateScope, Public, HideBySig

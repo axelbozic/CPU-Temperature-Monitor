@@ -1,0 +1,18 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly CPU Temperature Monitor, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly OpenHardwareMonitorLib, Version=0.9.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class UpdateVisitor_: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    OpenHardwareMonitor.Hardware.IVisitor
+  Methods:
+    VisitComputer(IComputer): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    VisitHardware(IHardware): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    VisitSensor(ISensor): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    VisitParameter(IParameter): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
